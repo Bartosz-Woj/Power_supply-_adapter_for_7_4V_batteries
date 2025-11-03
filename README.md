@@ -15,7 +15,7 @@ This PCB can be used to replace a battery/accumulator in other similar applicati
 | Parameter          | Description                           |
 | ------------------ | ------------------------------------- |
 | **Input Voltage**  | 9 V – 20 V DC                         |
-| **Output Voltage** | 8.6 V DC                              |
+| **Output Voltage** | 8.55 V DC                              |
 | **Output Current** | 2 A (max)                             |
 | **Protection**     | Overcurrent fuse and ESD protection   |
 | **Connector**      | Screw terminal connector (raster 5mm) |
@@ -30,7 +30,7 @@ A typical **2S Li-ion battery pack** (used in cameras like the Lumix G7) has a *
 | ---------------- | --------------- |
 | Fully Discharged | 6.0 V           |
 | Nominal          | 7.4 V           |
-| Fully Charged    | 8.4 V           |
+| Fully Charged    | 8.55 V           |
 
 Initially, a resistor **R6** (8.66 kOhm) was selected to provide an output of **7.4V**, targeting a nominal 7.4 V equivalent output.
 
@@ -40,7 +40,9 @@ However, this voltage caused the camera to display the error:
 
 and automatically power off after a few seconds.
 
-After further research and forum discussions, it was discovered that the **Lumix G7** expects a slightly higher voltage (over 8.4) to correctly identify the source as an **external power supply** rather than a battery.
+After further research and forum discussions [[thread 1](https://www.dpreview.com/forums/post/59409259)] [[thread 2](https://dprevived.com/t/panasonic-s-series-standby-power-updated-with-s5m2/4551/)], it was discovered that the **Lumix G7** expects a slightly higher voltage (over 8.4) to correctly identify the source as an **external power supply** rather than a battery. The manufacturer's documentation did not specify the allowable maximum supply voltage. Therefore, it was decided to set the threshold only slightly above the maximum cell voltage.
+
+Currenct consumption was checked with usage of laboratory power supply.The average current consumption is 0.3A, but momentary peaks, especially during startup and photo taking, reach above 1A.
 
 ---
 
@@ -59,8 +61,9 @@ Example values:
 | R5 | R6 | Output voltage |
 | --- | ---- | -------------- |
 | 100k | 8.66k | 7.4V |
-| 100k | 7.5k | 8.6V |
+| 100k | 7.5k | 8.55V |
 
+** Note:** The TVS diode's operating voltage sets the maximum output voltage at 8.55V.
 ---
 
 ## 📸 Photos
