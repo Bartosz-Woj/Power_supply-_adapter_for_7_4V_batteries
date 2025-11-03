@@ -19,6 +19,9 @@ fp-info-cache
 ~*.lck
 \#auto_saved_files#
 
+#zip
+*.zip
+
 # Netlist files (exported from Eeschema)
 *.net
 
